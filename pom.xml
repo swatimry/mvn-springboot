@@ -1,17 +1,14 @@
-
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-     <modelVersion>4.0.0</modelVersion>
-  <groupId>com.example.maven_assesment</groupId>
-  <artifactId>maven_assesment</artifactId>
-  <packaging>jar</packaging>
-
-
-  <version>1.0-SNAPSHOT</version>
-  <name>maven_assesment</name>
-  <url>http://maven.apache.org</url>
- 
+    <modelVersion>4.0.0</modelVersion>
+    
+    <groupId>com.example.maven_assesment</groupId>
+    <artifactId>maven_assesment</artifactId>
+    <packaging>jar</packaging>
+    <version>1.0-SNAPSHOT</version>
+    <name>maven_assesment</name>
+    <url>http://maven.apache.org</url>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -19,12 +16,18 @@
         <maven.compiler.target>11</maven.compiler.target>
         <sonar.host.url>http://localhost:9000</sonar.host.url>
         <sonar.projectKey>asg2</sonar.projectKey>
-         <sonar.login>sqp_6cb55ef701eaae502e803acc2cc11e820e742eb6</sonar.login>
-        <spring.boot.version>2.7.5</spring.boot.version> 
+        <sonar.login>sqp_6cb55ef701eaae502e803acc2cc11e820e742eb6</sonar.login>
+        <spring.boot.version>2.7.5</spring.boot.version>
     </properties>
 
     <dependencies>
-        <!-- JUnit 5 dependencies -->
+        <!-- Spring Boot Starter Web for creating web applications -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
+        <!-- JUnit 5 dependencies for testing -->
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-api</artifactId>
@@ -38,27 +41,38 @@
             <scope>test</scope>
         </dependency>
 
-        <!-- Selenium WebDriver -->
+        <!-- Selenium WebDriver for automation testing -->
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>
             <version>4.1.4</version>
         </dependency>
-
         
-        
+        <!-- Spring Boot Starter Test for testing Spring Boot applications -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
 
     <build>
         <plugins>
-            <!-- Sonar Maven Plugin -->
+            <!-- Spring Boot Maven Plugin for running the Spring Boot application -->
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>${spring.boot.version}</version>
+            </plugin>
+
+            <!-- Sonar Maven Plugin for static code analysis -->
             <plugin>
                 <groupId>org.sonarsource.scanner.maven</groupId>
                 <artifactId>sonar-maven-plugin</artifactId>
                 <version>3.9.1.2184</version>
             </plugin>
 
-            <!-- JaCoCo Maven Plugin -->
+            <!-- JaCoCo Maven Plugin for code coverage -->
             <plugin>
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
@@ -88,7 +102,6 @@
                 </configuration>
             </plugin>
 
-           
         </plugins>
     </build>
 </project>
