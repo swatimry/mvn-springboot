@@ -2,7 +2,7 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    
+
     <groupId>com.example.maven_assesment</groupId>
     <artifactId>maven_assesment</artifactId>
     <packaging>jar</packaging>
@@ -19,6 +19,19 @@
         <sonar.login>sqp_6cb55ef701eaae502e803acc2cc11e820e742eb6</sonar.login>
         <spring.boot.version>2.7.5</spring.boot.version>
     </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <!-- Import the Spring Boot BOM (Bill Of Materials) for automatic version management -->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${spring.boot.version}</version>
+                <scope>import</scope>
+                <type>pom</type>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 
     <dependencies>
         <!-- Spring Boot Starter Web for creating web applications -->
@@ -47,7 +60,7 @@
             <artifactId>selenium-java</artifactId>
             <version>4.1.4</version>
         </dependency>
-        
+
         <!-- Spring Boot Starter Test for testing Spring Boot applications -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
