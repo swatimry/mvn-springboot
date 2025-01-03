@@ -8,7 +8,7 @@ public class LoginPageAutomationSrc {
     private final WebDriver driver;
 
    
-    public LoginPage(WebDriver driver) {
+    public LoginPageAutomationSrc(WebDriver driver) {
         this.driver = driver;
     }
 
