@@ -40,4 +40,16 @@ public class LoginPage {
         WebElement messageElement = driver.findElement(By.id("flash"));
         return messageElement.getText();
     }
+
+    // Check if the login button is enabled
+    public boolean isLoginButtonEnabled() {
+        WebElement loginButton = driver.findElement(By.cssSelector("button[type='submit']"));
+        return loginButton.isEnabled();
+    }
+
+    // Get the error message for validation
+    public String getErrorMessage() {
+        WebElement errorElement = driver.findElement(By.id("error"));
+        return errorElement.getText();
+    }
 }
