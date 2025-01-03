@@ -24,7 +24,7 @@ public class LoginAutomationTest {
 
         try {
             
-            LoginPageAutomationSrc loginPage = new LoginPage(driver1);
+            LoginPageAutomationSrc loginPage = new LoginPageAutomationSrc(driver);
 
             
             loginPage.openLogpage("https://the-internet.herokuapp.com/login");
