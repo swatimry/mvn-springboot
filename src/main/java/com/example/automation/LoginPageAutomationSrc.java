@@ -13,18 +13,18 @@ public class LoginPageAutomationSrc {
     }
 
    
-    public void openLoginPage(String url) {
+    public void openLogpage(String url) {
         driver.get(url);
     }
 
    
-    public void setUsername(String username) {
+    public void setUsg_name(String username) {
         WebElement usernameField = driver.findElement(By.id("username"));
         usernameField.sendKeys(username);
     }
 
     
-    public void setPassword(String password) {
+    public void setPwd(String password) {
         WebElement passwordField = driver.findElement(By.id("password"));
         passwordField.sendKeys(password);
     }
@@ -36,7 +36,7 @@ public class LoginPageAutomationSrc {
     }
 
     
-    public String getSuccessMessage() {
+    public String getSuccessMsg() {
         WebElement messageElement = driver.findElement(By.id("flash"));
         return messageElement.getText();
     }
