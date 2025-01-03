@@ -1,41 +1,43 @@
 package com.example.automation;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.junit.jupiter.api.Test;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-class LoginAutomationTest {
+public class LoginAutomationTest {
 
     @Test
-    void testLogin() {
-        // Set up the WebDriver
-        System.setProperty("webdriver.chrome.driver", "C:\\Users\\ASUS\\Downloads\\chromedriver-win64\\chromedriver-win64\\chromedriver.exe");
-        WebDriver driver = new ChromeDriver();
+    public void testLogin() {
+        // Set up WebDriver path
+        System.setProperty("webdriver.chrome.driver", "C://Program Files//chromedriver//chromedriver.exe");
+
+        // Set ChromeOptions for headless mode
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--headless"); // Run tests in headless mode (no UI)
+        options.addArguments("--disable-gpu"); // Disable GPU acceleration
+        options.addArguments("--window-size=1920,1080"); // Set screen size
+
+        WebDriver driver = new ChromeDriver(options);
 
         try {
-            // Navigate to the login page served by Spring Boot (change port if needed)
-            driver.get("http://localhost:8081/login");  // Adjusted for your Spring Boot application
+            // Initialize the LoginPage object
+            LoginPage loginPage = new LoginPage(driver);
 
-            // Locate the username and password fields and the login button on the login page
-            WebElement usernameField = driver.findElement(By.id("username"));
-            WebElement passwordField = driver.findElement(By.id("password"));
-            WebElement loginButton = driver.findElement(By.cssSelector("button[type='submit']"));
+            // Navigate to the login page
+            loginPage.openLoginPage("https://the-internet.herokuapp.com/login");
 
-            // Perform login with correct credentials
-            usernameField.sendKeys("tomsmith");
-            passwordField.sendKeys("SuperSecretPassword!");
-            loginButton.click();
+            // Perform login with valid credentials
+            loginPage.setUsername("tomsmith");
+            loginPage.setPassword("SuperSecretPassword!");
+            loginPage.clickLoginButton();
 
-            // Validate successful login by checking for the success message
-            WebElement successMessage = driver.findElement(By.id("message"));  // Assuming the success message has id 'message'
-            assertTrue(successMessage.getText().contains("You logged into a secure area!"), "Login success message not found");
-
-            // Optional: Validate error message if incorrect credentials are entered
-            // WebElement errorMessage = driver.findElement(By.id("error-message"));
-            // assertTrue(errorMessage.getText().contains("Invalid username or password."), "Login error message not found");
+            // Validate successful login
+            String successMessage = loginPage.getSuccessMessage();
+            assertTrue(successMessage.contains("You logged into a secure area!"),
+                    "Login should be successful and a success message should be displayed.");
 
         } finally {
             // Close the browser
