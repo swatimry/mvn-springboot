@@ -41,11 +41,7 @@ public class LoginPage {
         return messageElement.getText();
     }
 
-    // Check if the login button is enabled
-    public boolean isLoginButtonEnabled() {
-        WebElement loginButton = driver.findElement(By.cssSelector("button[type='submit']"));
-        return loginButton.isEnabled();
-    }
+    
 
     // Get the error message for validation
     public String getErrorMessage() {
