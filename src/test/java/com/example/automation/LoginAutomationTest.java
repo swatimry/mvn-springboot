@@ -20,7 +20,7 @@ public class LoginAutomationTest {
         
         
 
-        WebDriver driver1 = new ChromeDriver(options);
+        WebDriver driver = new ChromeDriver(options);
 
         try {
             
