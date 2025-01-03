@@ -2,11 +2,11 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>com.example.maven_assessment</groupId>
-    <artifactId>Maven_coverage_pipeline3</artifactId>
+    <groupId>com.example.asg2</groupId>
+    <artifactId>asg2-maven</artifactId>
     <packaging>jar</packaging>
     <version>1.0-SNAPSHOT</version>
-    <name>Maven_coverage_pipeline3</name>
+    <name>maven-asg2</name>
     <url>http://maven.apache.org</url>
 
     <properties>
@@ -14,7 +14,7 @@
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
         <sonar.host.url>http://localhost:9000</sonar.host.url>
-        <sonar.projectKey>mv-t2</sonar.projectKey>
+        <sonar.projectKey>maven-asg-t2</sonar.projectKey>
     </properties>
 
     <dependencies>
