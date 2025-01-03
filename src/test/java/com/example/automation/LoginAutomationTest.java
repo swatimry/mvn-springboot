@@ -27,15 +27,15 @@ public class LoginAutomationTest {
             LoginPageAutomationSrc loginPage = new LoginPage(driver1);
 
             
-            loginPage.openLoginPage("https://the-internet.herokuapp.com/login");
+            loginPage.openLogpage("https://the-internet.herokuapp.com/login");
 
             
-            loginPage.setUsername("tomsmith");
-            loginPage.setPassword("SuperSecretPassword!");
+            loginPage.setUsg_name("tomsmith");
+            loginPage.setPwd("SuperSecretPassword!");
             loginPage.clickLoginButton();
 
             
-            String successMessage = loginPage.getSuccessMessage();
+            String successMessage = loginPage.getSuccessMsg();
             assertTrue(successMessage.contains("You logged into a secure area!"),
                     "Login  successful ");
 
