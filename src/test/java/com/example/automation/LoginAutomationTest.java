@@ -20,11 +20,11 @@ public class LoginAutomationTest {
         
         
 
-        WebDriver driver = new ChromeDriver(options);
+        WebDriver driver1 = new ChromeDriver(options);
 
         try {
             
-            LoginPage loginPage = new LoginPage(driver);
+            LoginPage loginPage = new LoginPage(driver1);
 
             
             loginPage.openLoginPage("https://the-internet.herokuapp.com/login");
